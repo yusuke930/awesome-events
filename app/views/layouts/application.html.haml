@@ -10,6 +10,9 @@
   %body
     %header.navbar.navbar-expand-sm.navbar-light.bg-light
     .containar
-      = link_to "AwesomeEvents", root_path, class: "navbar-brand"
+      = link_to "AwesomeEvents", root_path, class: "navbar-brand mr-auto"
+      %ul.navbar-navbar
+        %li.nav-item
+          = link_to "login to GitHub", "/auth/github", class: "nav-link", method: :post
   .containar    
     = yield
