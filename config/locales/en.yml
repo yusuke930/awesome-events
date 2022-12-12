@@ -30,4 +30,16 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      event: Event
+      ticket: Ticket
+    attributes:
+      event:
+        name: Name
+        place: Place
+        start_at: Start at
+        end_at: End at
+        content: Content
+      ticket:
+        comment: Comment
