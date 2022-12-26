@@ -1,0 +1,21 @@
+current directory: C:/Users/hayat/rails_projects/awesome_events/vendor/bundle/ruby/3.0.0/gems/hamlit-3.0.2/ext/hamlit
+C:/Ruby30-x64/bin/ruby.exe -I C:/Ruby30-x64/lib/ruby/3.0.0 -r ./siteconf20221218-9996-yatd3k.rb extconf.rb
+creating Makefile
+
+current directory: C:/Users/hayat/rails_projects/awesome_events/vendor/bundle/ruby/3.0.0/gems/hamlit-3.0.2/ext/hamlit
+make DESTDIR\= clean
+
+current directory: C:/Users/hayat/rails_projects/awesome_events/vendor/bundle/ruby/3.0.0/gems/hamlit-3.0.2/ext/hamlit
+make DESTDIR\=
+generating hamlit-x64-mingw32.def
+compiling hamlit.c
+hamlit.c: In function 'escape_html':
+hamlit.c:62:12: warning: comparison of integer expressions of different signedness: 'unsigned int' and 'long int' [-Wsign-compare]
+   62 |   if (size > RSTRING_LEN(str)) {
+      |            ^
+compiling hescape.c
+linking shared-object hamlit/hamlit.so
+
+current directory: C:/Users/hayat/rails_projects/awesome_events/vendor/bundle/ruby/3.0.0/gems/hamlit-3.0.2/ext/hamlit
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 hamlit.so ./.gem.20221218-9996-kckhlk/hamlit

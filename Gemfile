@@ -7,6 +7,7 @@ ruby '3.0.2'
 gem 'rails', '~> 6.0.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
+#gem 'mysql2', '~> 0.3.20'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -24,6 +25,8 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# gem 'devise' # 簡単に認証機能を実装できるgem login logout のこと
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -35,6 +38,8 @@ gem 'rails-i18n', '~> 6.0.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -46,6 +51,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'faker'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end

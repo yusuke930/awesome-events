@@ -13,18 +13,22 @@
     %h3.ml-4.card-header Place
     .ml-4.card-body
       %p.card-text= @event.place
-
     .card.mb-2.ml-4.mr-4
     %h3.ml-4.card-header Owner
     .ml-4.card-body
-      = link_to("https://github.com/#{@event.owner.name}", class: "card-link") do
-        = image_tag @event.owner.image_url, width: 50, height: 50
-        = "@#{@event.owner.name}"
+      - if @event.owner
+        = link_to("https://github.com/#{@event.owner.name}", class: "card-link") do
+          = image_tag @event.owner.image_url, width: 50, height: 50
+          = "@#{@event.owner.name}"
+      - else
+        This user already canceled the membership.
   .col-2
     - if @event.created_by?(current_user)
       = link_to "Edit", edit_event_path(@event), class: "btn btn-info btn-lg btn-block"
       = link_to "Delete", event_path(@event), class: "btn btn-danger btn-lg btn-block", method: :delete, data: { confirm: "Are you sure delete this event?" }
-    - if logged_in?
+    - if @ticket
+      = link_to "Cancel", event_ticket_path(@event, @ticket), method: :delete, class: "btn btn-warning btn-lg btn-block"
+    - elsif logged_in?
       %button.mb-2.btn.btn-primary.btn-lg.btn-block{ "data-toggle" => "modal", "data-target" => "#createTicket" }
         Join in
       %div.modal.fade#createTicket
@@ -44,14 +48,17 @@
     - else
       = link_to "Join in", new_event_ticket_path(@event), class: "btn btn-primary btn-lg btn-block"
     %horizontal
-    .card.mb-2
+    .card.mb-2.mt-2
       %h5.card-header Participant
       %ul.list-group.list-group-flush
         - @tickets.each do |ticket|
           %li.list-group-item
-            = link_to(url_for_github(ticket.user), class: "card-link") do
-              = image_tag ticket.user.image_url, width: 20, height: 20
-              = "@#{ticket.user.name}"
-            = ticket.comment
+            - if ticket.user
+              = link_to(url_for_github(ticket.user), class: "card-link") do
+                = image_tag ticket.user.image_url, width: 20, height: 20
+                = "@#{ticket.user.name}"
+              = ticket.comment
+            - else
+              This user already canceled the membership.
        
 

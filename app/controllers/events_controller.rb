@@ -4,7 +4,7 @@ skip_before_action :authenticate, only: :show
 
 
   def index
-    @events = Event.all
+    @events = Event.where("end_at > ?", Time.zone.now).order(:start_at)
 
     logger.debug "-----------------------"
     logger.debug "#{@events}"
@@ -33,6 +33,7 @@ skip_before_action :authenticate, only: :show
   
   def show
     @event = Event.find(params[:id]) 
+    @ticket = current_user && current_user.tickets.find_by(event: @event)
     @tickets = @event.tickets.includes(:user).order(:created_at)  # if we don't use include, @ticketsの要素の数だけクエリが作成される
   end
 

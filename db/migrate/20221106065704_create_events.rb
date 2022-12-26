@@ -11,6 +11,6 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_index :events, :owner_id                                                                                                     File.rename(tmpname, filename)                     
+    add_index :events, :owner_id                  
   end
 end
