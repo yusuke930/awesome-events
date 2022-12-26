@@ -1,0 +1,15 @@
+%h1.mt-3.ml-5 Confirm Retirement
+
+#errors
+
+%p.ml-5 In case of retirement, all data of user is going to be deleted.
+%p.ml-5 However, you cannot cancel your membership in the following cases.
+
+%ul.ml-3
+  %li
+    If there are any unfinished events that are open to the public
+  %li.mb-2
+    If you have any uncompleted events to attend
+  %hr
+  = link_to "Delete Menbership", retirements_path, method: :post, remote: true, class: "btn btn-danger",
+data: { confirm: "Are you sure you want to retire?" }
